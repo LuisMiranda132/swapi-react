@@ -1,0 +1,30 @@
+header {
+    display: grid;
+    grid-template-columns: 50px auto;
+    border-style: double;
+    border-radius: 10px;
+    margin-bottom: 3px;
+    border-width: thick;
+
+    .title {
+        justify-self: center;
+    }
+
+    button {
+        border-radius: 10px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        background: transparent;
+        border: yellow;
+        color: yellow;
+        border-style: double;
+        width: 100%;
+    }
+
+}
+
+main {
+    margin: 10px 10px 10px 10px;
+    padding: 10px;  
+}

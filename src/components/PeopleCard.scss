@@ -1,0 +1,19 @@
+.card{
+    
+    display: grid;
+    padding: 10px 10px;
+    border-style: double;
+    border-radius: 10px;
+    margin-bottom: 3px;
+    border-width: thick;    
+
+    h3{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    
+    h5{
+        margin-top: 2px;
+        margin-bottom: 0px;
+    }
+}
