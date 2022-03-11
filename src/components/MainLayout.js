@@ -22,7 +22,7 @@ const MainLayout = (props) => {
                 </button>
                 <h1 className="title">People of Star Wars</h1>
             </header>
-            <LoadingBar style={{ backgroundColor: 'yellow' }} />
+            <LoadingBar style={{ backgroundColor: 'yellow', height: '10px' }} />
 
             {error ?
                 <div className='error'>
