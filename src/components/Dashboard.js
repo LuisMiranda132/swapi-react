@@ -14,7 +14,7 @@ const Dashboard = () => {
     const { elements, next } = people;
 
     useEffect(() => {
-        if(Object.keys(elements).length == 0){
+        if (Object.keys(elements).length == 0) {
             dispatch(getData())
         }
     }, [])

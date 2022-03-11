@@ -1,11 +1,12 @@
 import axios from "axios";
 import { showLoading, hideLoading } from 'react-redux-loading';
 
+import { setError } from "./error";
 import { recievePeople } from "./people";
 import { recievePlanets } from "./planets";
 import { recieveSpecies } from "./species";
-import { recieveStarships } from "./starships";
 import { recieveVehicles } from "./vehicles";
+import { recieveStarships } from "./starships";
 
 
 export function getData(next = "https://swapi.dev/api/people/") {
@@ -30,14 +31,14 @@ export function getData(next = "https://swapi.dev/api/people/") {
                         dispatch(recieveSpecies(response.reduce((accum, { data }) => ({ ...accum, [data.url]: data }), {})))
                         dispatch(hideLoading());
                     })
-
-
-            }))
+            })).catch((error) => {
+                dispatch(setError(error));
+                dispatch(hideLoading());
+            })
     }
 }
 
 export function getDetailsData(vehicles, starships) {
-    console.log(vehicles)
     return function (dispatch) {
         dispatch(showLoading());
         return (Promise.all(vehicles.map((url) => axios.get(url)))
@@ -51,6 +52,9 @@ export function getDetailsData(vehicles, starships) {
                         dispatch(recieveStarships(response.reduce((accum, { data }) => ({ ...accum, [data.url]: data }), {})))
                         dispatch(hideLoading());
                     })
+            }).catch((error) => {
+                dispatch(setError(error));
+                dispatch(hideLoading());
             })
         )
     }
